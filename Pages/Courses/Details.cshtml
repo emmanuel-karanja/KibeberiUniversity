@@ -1,0 +1,44 @@
+@page "{id:int}"
+@model Courses.DetailsModel
+
+@{
+    ViewData["Title"]="Details";
+}
+
+<h2>Details</h2>
+
+<div> 
+    <h4>Courses</h4>
+    <hr/>
+    <dl class="row">
+       <dt class="col-sm-4">
+           @Html.DisplayNameFor(model=>model.Data.Id)
+        </dt>
+       <dd class="col-sm-8">
+           @Html.DisplayFor(model=> model.Data.Id)
+       </dd>
+        <dt class="col-sm-4">
+          @Html.DisplayNameFor(model=>model.Data.Title)
+        </dt>
+       <dd class="col-sm-8">
+           @Html.DisplayFor(model=> model.Data.Title)
+       </dd>
+       <dt class="col-sm-4">
+            @Html.DisplayNameFor(model=>model.Data.Credits)
+        </dt>
+       <dd class="col-sm-8">
+           @Html.DisplayFor(model=> model.Data.Credits)
+       </dd>
+       <dt class="col-sm-4">
+            @Html.DisplayNameFor(model=>model.Data.DepartmentName)
+        </dt>
+       <dd class="col-sm-8">
+           @Html.DisplayFor(model=> model.Data.DepartmentName)
+       </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-page="Edit" asp-route-id="@Model.Data.Id">Edit</a>
+    <a asp-page="Index">Back To Courses List></a>
+</div>

@@ -1,0 +1,60 @@
+@page "{id:int}"
+@model Students.DetailsModel
+
+@{
+    ViewData["Title"]="Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model=>model.Data.LastName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model=>model.Data.LastName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model=>model.Data.FirstMidName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model=>model.Data.FirstMidName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model=>model.Data.EnrollmentDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model=>model.Data.EnrollmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model=>model.Data.Enrollments)
+        </dt>
+        <hr/>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title </th>
+                    <th>Grade</th>
+                </tr>
+                @for (var i =0; i< Model.Data.Enrollments.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model=>model.Data.Enrollments[i].CourseTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model=>model.Data.Enrollments[i].Grade)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>      
+    </dl>
+</div>
+<div>
+    <a asp-page="Edit" asp-route-id="@Model.Data.Id">Edit</a>
+    <a asp-page="Index" >Back To Students List</a>
+</div>

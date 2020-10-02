@@ -1,0 +1,31 @@
+@page
+@model AboutModel
+
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+
+<h2></h2> Student Body Staticstics</h2>
+
+<table></table>
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+    @foreach(var item in Model.Data)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=> item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=> item.StudentCount)
+            </td>
+        </tr>
+    }
+
+</table>

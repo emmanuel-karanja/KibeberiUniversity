@@ -1,0 +1,57 @@
+@page
+@model Courses.IndexModel
+
+@{
+    ViewData["Title"]="Courses";
+}
+
+<h2>Courses</h2>
+
+<p></p>
+    <a asp-page="Create">Create New Course</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Credits
+            </th>
+            <th>
+                Department
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach(var item in Model.Data.Courses)
+        {
+            <tr>
+                <td>
+                   @Html.DisplayFor(modelItem=> item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=> item.Title)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem=> item.Credits)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem=> item.DepartmentName)
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-page="Delete"  asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
